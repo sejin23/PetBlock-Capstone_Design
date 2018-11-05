@@ -1,2 +1,3 @@
-# PetBlock-Capstone_Design
-using react-native
+# PetBlock : Capstone Design Project
+
+Mobile Application using react-native
