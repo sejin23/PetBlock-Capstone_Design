@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 type Props = {};
 export default class HomeScreen extends Component<Props> {
+    _login = () => {
+        this.props.navigation.navigate('Login');
+    };
     render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.title}>Hello?</Text>
-                <TextInput style={styles.content}/>
-                <Text style={styles.footer}>Hello?</Text>
-                <Text style={styles.tapbar}>Hello?</Text>
+                <Button title="pull the etherscan" onPress={this._login}/>
             </View>
         );
     }
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     footer: {
         flex: 1
     },
-    tapbar: {
+    tabbar: {
         flex: 1
     }
 });

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-//import AppNavigator from './navigation/AppNavigator';
-import LoginNavigator from './navigation/LoginNavigator';
+import AppNavigator from './navigation/AppNavigator';
 
 /*const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -12,23 +11,12 @@ import LoginNavigator from './navigation/LoginNavigator';
 
 type Props = {};
 export default class App extends Component<Props> {
-  state = {
-    isLoginComplete: false
-  }
   render() {
-    if(!this.state.isLoginComplete) {
-      return (
-        <View style={styles.container}>
-          <LoginNavigator />
-        </View>
-      );
-    }/* else {
-      return (
-        <View style={styles.container}>
-          <AppNavigator />
-        </View>
-      );
-    }*/
+    return (
+      <View style={styles.container}>
+        <AppNavigator />
+      </View>
+    );
   }
 }
 

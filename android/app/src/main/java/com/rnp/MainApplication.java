@@ -1,7 +1,7 @@
 package com.rnp;
 
 import android.app.Application;
-
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactApplication;
 import com.RNRSA.RNRSAPackage;
 import com.facebook.react.ReactNativeHost;
@@ -24,7 +24,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNRSAPackage()
+          new RNRSAPackage(),
+	  new VectorIconsPackage()
       );
     }
 

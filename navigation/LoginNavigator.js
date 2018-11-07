@@ -1,15 +1,21 @@
 import React, {Component} from 'react';
-import { SwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import LoginScreen from '../src/screens/LoginScreen';
 import JoinScreen from '../src/screens/JoinScreen';
-import AppNavigator from './AppNavigator';
 
-export default SwitchNavigator(
+export default createStackNavigator(
 {
-    AppNavigator,
-    Login: LoginScreen,
-    Join: JoinScreen,
+    Login: {
+        screen: LoginScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Login'
+        })
+    },
+    Join: {
+        screen: JoinScreen,
+        navigationOptions: ({navigation}) => ({
+            title: 'Join'
+        })
+    }
 },
-{
-    initialRouteName: 'Login'
-});
+);

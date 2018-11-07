@@ -9,15 +9,12 @@ export default class Login extends Component<Props> {
     this.props.navigation.navigate('Join');
   };
   _signUp = () => {
-    this.props.navigation.navigate('AppNavigator');
+    this.props.navigation.navigate('Home');
   };
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.title}>
-          <Text style={{fontSize:32,paddingBottom:10}}>Login Please</Text>
-          <View style={{width:"100%",borderBottomWidth:1,borderColor:'#444'}} />
-        </View>
+        <View style={{width:"100%",borderBottomWidth:1,borderColor:'#444'}} />
         <View style={styles.content}>
         <View style={styles.inputform}>
             <TextInput style={styles.inputblank} placeholder="ID"/>
@@ -47,11 +44,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'white',
   },
-  title: {
-    width:'100%',
-    height:'13%',
-    justifyContent: 'center'
-  },
   content: {
     flex: 1,
     paddingLeft:10,
@@ -60,7 +52,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     width:'100%',
-    height:'25%',
+    height: 120,
     padding: 10,
   },
   inputform: {

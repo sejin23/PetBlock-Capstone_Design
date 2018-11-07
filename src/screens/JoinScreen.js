@@ -29,10 +29,7 @@ export default class Login extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.title}>
-          <Text style={{fontSize:35,paddingBottom:10}}>Join</Text>
-          <View style={{width:"100%",borderBottomWidth:1,borderColor:'#444'}} />
-        </View>
+        <View style={{width:"100%",borderBottomWidth:1,borderColor:'#444'}} />
         <View style={styles.content}>
           <View style={styles.inputform}>
             <Text style={{fontSize:15}}>Name</Text>
@@ -71,11 +68,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'white',
   },
-  title: {
-    width:'100%',
-    height:'13%',
-    justifyContent: 'center'
-  },
   content: {
     flex: 1,
     paddingLeft:10,
@@ -84,7 +76,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     width:'100%',
-    height:'25%',
+    height: 120,
     padding: 10
   },
   inputform: {
