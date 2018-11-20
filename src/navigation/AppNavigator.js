@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
 import { createDrawerNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Settings from './Settings';
-import Profile from './Profile';
-//import LoginNavigator from './LoginNavigator';
-//import HomeScreen from '../src/screens/HomeSrceen';
-//import SettingScreen from '../src/screens/SettingScreen';
+import HomeScreen from '../screens/HomeScreen';
+import Profile from '../screens/Profile';
 
 export default createDrawerNavigator({
-  Settings: {
-    screen: Settings,
+  HomeScreen: {
+    screen: HomeScreen,
     navigationOptions: {
-      drawerLabel: 'Settings',
+      drawerLabel: 'Home',
       drawerIcon: ({tintColor}) => <Icon name="user-circle" size={17} />,
     }
   },
@@ -23,13 +20,3 @@ export default createDrawerNavigator({
     }
   }
 });
-
-
-/*{
-  LoginNavigator,
-  Home: HomeScreen,
-  Setting: SettingScreen
-},
-{
-  initialRouteName: 'Setting'
-}*/

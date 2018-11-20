@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Styles from '../../styles';
+import Styles from '../../../styles';
 
-export default class MemoryHome extends Component {
+export default class CPUHome extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: "Memory",
+        title: "Main",
         headerLeft: (
             <TouchableOpacity
                 style={Styles.headerButton}
@@ -18,8 +18,11 @@ export default class MemoryHome extends Component {
     render() {
         return (
             <View style={Styles.container}>
-                <Text>Memory Settings</Text>
-                <Icon name="memory" size={48} />
+                <Text>Main Page</Text>
+                <Icon name="home" size={48} />
+                <Button
+                    onPress={() => this.props.navigation.navigate("Details")}
+                    title="Go To Details" />
             </View>
         );
     }

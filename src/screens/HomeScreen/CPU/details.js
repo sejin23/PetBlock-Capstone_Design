@@ -6,7 +6,7 @@ export default class CPUDetails extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>CPU Details</Text>
+                <Text>Main Details</Text>
 
             </View>
         );

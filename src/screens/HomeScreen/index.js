@@ -5,21 +5,21 @@ import MemoryScreen from './Memory';
 import CPUScreen from './CPU';
 
 const SettingsTabs = createBottomTabNavigator({
-    CPU: {
+    Home: {
         screen: CPUScreen,
         navigationOptions: {
-            title: "CPU",
+            title: "Home",
             tabBarIcon: ({ tintColor }) => (
-                <Icon name="microchip" size={17} color={ tintColor } />
+                <Icon name="home" size={17} color={ tintColor } />
             )
         }
     },
     Memory: {
         screen: MemoryScreen,
         navigationOptions: {
-            tabBarLabel: "Memory",
+            tabBarLabel: "List",
             tabBarIcon: ({ tintColor }) => (
-                <Icon name="memory" size={17} color={ tintColor } />
+                <Icon name="github" size={17} color={ tintColor } />
             )
         }
     }

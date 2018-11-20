@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Styles from '../../styles';
+import Styles from '../../../styles';
 
-export default class CPUHome extends Component {
+export default class MemoryHome extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: "CPU",
+        title: "Memory",
         headerLeft: (
             <TouchableOpacity
                 style={Styles.headerButton}
@@ -18,11 +18,8 @@ export default class CPUHome extends Component {
     render() {
         return (
             <View style={Styles.container}>
-                <Text>CPU Settings</Text>
-                <Icon name="microchip" size={48} />
-                <Button
-                    onPress={() => this.props.navigation.navigate("Details")}
-                    title="Go To Details" />
+                <Text>Memory Settings</Text>
+                <Icon name="github" size={48} />
             </View>
         );
     }
