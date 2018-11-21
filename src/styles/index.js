@@ -6,12 +6,6 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    joincontainer: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent:'center',
-        alignItems: 'center'
-    },
     headerButton: {
         height: 44,
         width: 44,
@@ -24,12 +18,32 @@ export default StyleSheet.create({
         alignItems:'center',
         paddingBottom: 10,
     },
+    joincontainer: {
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignItems: 'center'
+    },
     jointextform: {
         width: '100%',
         flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
         padding: 5
+    },
+    joinicon: {
+        width: '100%',
+        flex: 1,
+        justifyContent:'center',
+        alignItems: 'center',
+    },
+    jointext: {
+        width: '100%',
+        flex: 4,
+        padding: 10,
+    },
+    joinbutton: {
+        width: '90%',
+        flex: 1,
     },
     joinname: {
         flex: 1,

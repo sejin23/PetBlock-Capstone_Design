@@ -17,7 +17,7 @@ const SettingsTabs = createBottomTabNavigator({
     Memory: {
         screen: MemoryScreen,
         navigationOptions: {
-            tabBarLabel: "List",
+            tabBarLabel: "Diagnosis",
             tabBarIcon: ({ tintColor }) => (
                 <Icon name="github" size={17} color={ tintColor } />
             )

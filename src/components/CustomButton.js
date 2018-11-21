@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export default class CustomButton extends Component<Props> {
+export default class CustomButton extends Component {
     static defaultProps = {
         title: 'untitled',
         buttonColor: '#000',
