@@ -16,7 +16,7 @@ export default StyleSheet.create({
     inputtextform: {
         width: '100%',
         alignItems:'center',
-        paddingBottom: 10,
+        paddingBottom: 10
     },
     joincontainer: {
         flexDirection: 'column',
