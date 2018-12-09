@@ -4,6 +4,9 @@ import android.app.Application;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactApplication;
 import com.RNRSA.RNRSAPackage;
+import com.rnfs.RNFSPackage;
+import im.shimo.react.cookie.CookieManagerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -23,9 +26,12 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new RNRSAPackage(),
-	  new VectorIconsPackage()
+            new MainReactPackage(),
+            new VectorIconsPackage(),
+            new RNRSAPackage(),
+            new RNFSPackage(),
+            new CookieManagerPackage(),
+            new RNFetchBlobPackage()
       );
     }
 

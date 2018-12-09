@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, AsyncStorage } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import CustomButton from '../../components/CustomButton';
 import {RSA, RSAKeychain} from 'react-native-rsa-native';
@@ -49,8 +49,6 @@ export default class Loginscreen extends Component {
         this.props.navigation.navigate('Join');
     }
     _signin = () => {
-        AsyncStorage.setItem("isloggedin", "true");
-        this.setState({isloggedin: "true"});
         this.postidentify();
     }
     _signout = () => {
@@ -58,10 +56,10 @@ export default class Loginscreen extends Component {
         this.setState({isloggedin: "false"});
     }
     async postidentify() {
-        const url = 'http://203.252.34.61:3001/api/auth/authreq';
-        const sigurl = 'http://203.252.34.61:3001/api/auth/signature';
-        await fetch(url, {
+        const url = 'http://203.252.34.114:3001/api/auth/';
+        await fetch(url+'authreq', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -72,11 +70,13 @@ export default class Loginscreen extends Component {
         })
         .then((response) => response.json())
         .then((responseJson) => {
+            console.log("response is "+responseJson.message);
             RSA.sign(responseJson.message, this.state.privatekey)
             .then(signature => {
                 console.log(signature);
-                fetch(sigurl, {
+                fetch(url+'signature', {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
@@ -87,10 +87,13 @@ export default class Loginscreen extends Component {
                 })
                 .then((resp) => resp.json())
                 .then((respJson) => {
-                    console.log("hello is " + respJson.message);
+                    if(respJson.message == "valid_signature"){
+                        AsyncStorage.setItem("isloggedin", "true");
+                        this.setState({isloggedin: "true"});
+                    }
                 })
                 .catch((err) => {
-                    console.log("2nd fetch"+err);
+                    console.log("2nd fetch "+err);
                 });
             })
             .catch((err) => {
@@ -98,7 +101,7 @@ export default class Loginscreen extends Component {
             });
         })
         .catch((err) => {
-            console.log("1st fetch"+err);
+            console.log("1st fetch "+err);
         });
     }
     render() {
@@ -112,7 +115,10 @@ export default class Loginscreen extends Component {
         else{
             return (
                 <View style={Styles.container}>
-                    <Icon name="user-circle" style={{paddingBottom: 15}} size={48} />
+                    <View style={Styles.switchheader}>
+                        <Text>header</Text>
+                    </View>
+                    <Icon name="user-circle" style={{flex: 2, paddingBottom: 15}} size={48} />
                     <View style={Styles.inputtextform}>
                         <Text>Hello {this.state.usrname}</Text>
                     </View>

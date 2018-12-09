@@ -143,7 +143,10 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-rsa-native')
+    compile project(':rn-fetch-blob')
+    implementation project(':react-native-fs')
+    implementation project(':react-native-cookie')
+    implementation project(':react-native-rsa-native')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules

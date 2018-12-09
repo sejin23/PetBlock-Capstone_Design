@@ -34,7 +34,8 @@ export default class Joinscreen extends Component {
     this.postJoinFromApi();
   }
   async postJoinFromApi() {
-    const url = 'http://203.252.34.61:3001/api/auth/register';
+    const url = 'http://203.252.34.114:3001/api/auth/register';
+    console.log("public : "+this.state.publickey);
     try{
       let response =  await fetch(url, {
         method: 'POST',
@@ -92,5 +93,3 @@ export default class Joinscreen extends Component {
     );
   }
 }
-
-//this._PressButton.bind(this)

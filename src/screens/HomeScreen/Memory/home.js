@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, AppRegistry, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import RNFS from 'react-native-fs';
 import Styles from '../../../styles';
 
 export default class MemoryHome extends Component {
+    constructor() {
+        super()
+        this.state = {
+          isDone: false,
+          filelist: false,
+        };
+        //this.onDownloadImagePress = this.onDownloadImagePress.bind(this);
+    }
     static navigationOptions = ({ navigation }) => ({
-        title: "Memory",
+        title: "File",
         headerLeft: (
             <TouchableOpacity
                 style={Styles.headerButton}
@@ -14,45 +23,54 @@ export default class MemoryHome extends Component {
             </TouchableOpacity>
         ),
     });
-    constructor() {
-        super()
-        this.state = {
-            dataSource: []
-        }
-    }
-    renderItem = ({item}) => {
-        return(
-            <View>
-                <Image style={{width: 100, height: 100}}
-                    source={{uri: item.image}} />
-                <View>
-                    <Text>{item.book_title}</Text>
-                    <Text>{item.author}</Text>
-                </View>
-            </View>
-        )
-    }
-    componentDidMount() {
-        const url = 'http://www.json-generator.com/api/json/get/ccLAsEcOSq?indent=1'
-        fetch(url)
-        .then((response) => response.json())
-        .then((responseJson) => {
-            this.setState({
-                dataSource: responseJson.book_array
-            })
-        })
-        .catch((error) => {
-            console.log("error is : "+error)
-        })
-    }
     render() {
+        const flist = this.state.filelist ? (
+            <ScrollView>
+                
+            </ScrollView>
+        ): null;
         return (
-            <View style={Styles.container}>
-                <FlatList
-                    data={this.state.dataSource}
-                    renderItem={this.renderItem}
-                />
+            <View>
+                <Text>Hello</Text>
             </View>
         );
     }
 }
+    /*onDownloadImagePress() {
+        RNFS.downloadFile({
+            fromUrl: 'http://203.252.34.114:3001/api/fileRegister/filedownloads/jodicks/2018-11-28time_22:59.jpg',
+            toFile: `${RNFS.DocumentDirectoryPath}/react.jpg`,
+        }).promise.then((r) => {
+            this.setState({ isDone: true })
+        }).catch((err)=>{
+            console.log("errs are"+err);
+        });
+    }
+    
+    render() {
+        const preview = this.state.isDone ? (
+        <View style={{
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
+            <Image style={{
+                width: "80%",
+                height: 400,
+                backgroundColor: 'black',
+            }}
+            source={{
+                uri: `file://${RNFS.DocumentDirectoryPath}/react.jpg`,
+                scale: 1
+            }} />
+            <Text>{`file://${RNFS.DocumentDirectoryPath}/react.jpg`}</Text>
+        </View>
+        ) : null;
+        return (
+          <View>
+            <Text onPress={this.onDownloadImagePress}>Download Image</Text>
+            {preview}
+          </View>
+        );
+    }
+}
+AppRegistry.registerComponent('downloadFile', () => downloadFile);*/

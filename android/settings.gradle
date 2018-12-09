@@ -1,6 +1,12 @@
 rootProject.name = 'rnp'
+include ':rn-fetch-blob'
+project(':rn-fetch-blob').projectDir = new File(rootProject.projectDir, '../node_modules/rn-fetch-blob/android')
 include ':react-native-rsa-native'
 project(':react-native-rsa-native').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-rsa-native/android')
+include ':react-native-fs'
+project(':react-native-fs').projectDir = new File(settingsDir, '../node_modules/react-native-fs/android')
+include ':react-native-cookie'
+project(':react-native-cookie').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-cookie/android')
 
 include ':app'
 include ':react-native-vector-icons'

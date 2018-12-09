@@ -18,6 +18,7 @@ const SettingsTabs = createBottomTabNavigator({
         screen: MemoryScreen,
         navigationOptions: {
             tabBarLabel: "Diagnosis",
+            title: "File",
             tabBarIcon: ({ tintColor }) => (
                 <Icon name="github" size={17} color={ tintColor } />
             )

@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    switchheader: {
+        flex: 1,
+        width: '100%',
+        height: 44,
+        borderWidth: 1,
+        alignItems: 'center'
     },
     headerButton: {
         height: 44,
         width: 44,
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    inputtextform: {
-        width: '100%',
-        alignItems:'center',
-        paddingBottom: 10
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     joincontainer: {
         flexDirection: 'column',
@@ -60,6 +62,7 @@ export default StyleSheet.create({
         padding: 10,
     },
     lowButton: {
+        flex: 3,
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
@@ -68,6 +71,12 @@ export default StyleSheet.create({
     custombtn: {
         width: 150,
         height: 40,
+    },
+    inputtextform: {
+        flex: 2, 
+        width: '100%',
+        alignItems:'center',
+        paddingBottom: 10
     },
     inputblank: {
         borderColor: '#aaa',
