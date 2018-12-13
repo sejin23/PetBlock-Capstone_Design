@@ -62,13 +62,9 @@ export default StyleSheet.create({
         marginTop: 10,
     },
     header: {
-        flex: 1,
+        height: 70,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    middle1: {
-        flex: 2,
-        backgroundColor: '#785E85',
     },
     body: {
         flex: 3,
@@ -79,6 +75,11 @@ export default StyleSheet.create({
         margin: 15,
         width: 150,
         height: '30%',
+    },
+    weatherimagestyle: {
+        marginTop: 20,
+        width: 150,
+        height:  150,
     },
     ellipticButton: {
         alignItems: 'center',

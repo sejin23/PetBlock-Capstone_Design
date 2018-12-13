@@ -1,14 +1,9 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Animated } from 'react-native';
-
-import { DangerZone } from 'expo';
-const { Lottie } = DangerZone;
-
+import { StyleSheet, Text, View } from 'react-native';
 import { API_KEY } from './utils/WeatherAPIKey';
-
 import Weather from './components/Weather';
 
-export default class App extends React.Component {
+export default class App extends Component {
   state = {
     isLoading: true,
     temperature: 0,

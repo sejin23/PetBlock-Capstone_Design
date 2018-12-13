@@ -1,16 +1,26 @@
 import React, {Component} from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Image, Text, AppRegistry, TouchableOpacity } from 'react-native';
 import Styles from '../styles';
+import RNFS from 'react-native-fs';
 
 export default class Diagscreen extends Component{
     constructor(props){
         super(props);
         this.state = {
             files: [],
+            isopened: false,
         }
+        this.downloadfile = this.downloadfile.bind(this);
     }
     downloadfile = () => {
-        
+        RNFS.downloadFile({
+            fromUrl: 'http://13.124.213.62:3001/api/fileRegister/filedownloads/ParkSejin/'+this.state.files[1],
+            toFile: `${RNFS.DocumentDirectoryPath}/diagnosis.jpg`
+        }).promise.then((r) => {
+            this.setState({isopened: true});
+        }).catch((err) => {
+            console.log("err");
+        });
     }
     downloadlist = () => {
         const url = 'http://13.124.213.62:3001/api/fileRegister/file_list';
@@ -28,12 +38,13 @@ export default class Diagscreen extends Component{
             })
             .then((response) => response.json())
             .then((responseJson) => {
+                console.log(responseJson.file_list.length);
                 for(let i=0; i<responseJson.file_list.length; i++){
                     this.setState({
                         files: [
                             ...this.state.files,
                             responseJson.file_list[i]
-                        ]
+                        ],
                     });
                 }
             });
@@ -43,28 +54,46 @@ export default class Diagscreen extends Component{
     }
     render() {
         let filelist = this.state.files.map((item, key) => {
-            
             return(
                 <View key={key}>
-                    <Text onPress={this.downloadfile}>{item}</Text>
+                    <TouchableOpacity onPress={this.downloadfile}>
+                        <Text>{item}</Text>
+                    </TouchableOpacity>
                 </View>
             )
         });
+        let filexist = this.state.isopened? (
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <Image style={{
+                    width: "100%",
+                    height: 500,
+                    backgroundColor: 'black',
+                }}
+                source={{
+                    uri: `file://${RNFS.DocumentDirectoryPath}/diagnosis.jpg`,
+                    scale: 1
+                }} />
+            </View>
+        ): null;
         return (
-            <View style={Styles.container}>
+            <ScrollView style={{backgroundColor: '#A0C4C5'}}>
                 <View style={Styles.header}>
                     <TouchableOpacity onPress={this.downloadlist}>
                         <Image source={require('../image/head.png')} />
                     </TouchableOpacity>
                 </View>
-                <View style={{flex: 6, backgroundColor: '#A0C4C5'}}>
+                <View style={{flex: 1, backgroundColor: '#A0C4C5'}}>
                     <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
                         {filelist}
                     </View>
+                    {filexist}
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
 
-//
+AppRegistry.registerComponent('downloadFile', () => downloadFile);

@@ -3,8 +3,12 @@ import { View, Image, Text, TouchableOpacity } from 'react-native';
 import Styles from '../styles';
 
 export default class Selectscreen extends Component{
+    state = {
+        privatekey: "",
+        publicaddress: ""
+    }
     otprequest = () => {
-        const url = 'http://13.124.213.62:3001/api/fileRegister/file_list';
+        const url = 'http://13.124.213.62:3001/api/auth/OTPreq';
         try{
             fetch(url, {
                 method: 'POST',
@@ -20,8 +24,7 @@ export default class Selectscreen extends Component{
             .then((response) => response.json())
             .then((responseJson) => {
                 alert(
-                    responseJson.message,
-                    'Show this OTP to your veterinarian',
+                    responseJson.OTP
                 );
             });
         }catch(err){
@@ -30,6 +33,9 @@ export default class Selectscreen extends Component{
     }
     showmykey = () => {
         
+    }
+    weatherinfo = () => {
+        this.props.navigation.navigate('Petinfo');
     }
     nextactivity = () => {
         this.props.navigation.navigate('Petinfo');
@@ -40,7 +46,11 @@ export default class Selectscreen extends Component{
                 <View style={Styles.header}>
                     <Image source={require('../image/head.png')}/>
                 </View>
-                <View style={Styles.middle1} />
+                <View style={{flex: 2, alignItems: 'center'}}>
+                     <TouchableOpacity style={{justifyContent: 'center'}} onPress={this.weatherinfo}>
+                        <Image style={Styles.weatherimagestyle} source={require('../image/weathericon.png')} />
+                     </TouchableOpacity>
+                </View>
                 <View style={Styles.body}>
                     <TouchableOpacity style={{justifyContent: 'center'}} onPress={this.nextactivity}>
                         <Image style={Styles.dogimagestyle} source={require('../image/dog.png')} />
@@ -54,7 +64,7 @@ export default class Selectscreen extends Component{
                     flexDirection: 'row',
                     justifyContent: 'space-around'
                     }}>
-                    <TouchableOpacity style={Styles.largeButton} onPress={this.nextActivity} >
+                    <TouchableOpacity style={Styles.largeButton} onPress={this.weatherinfo} >
                         <Text style={{color: '#CDDDF1'}}>Show keys</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.largeButton} onPress={this.otprequest} >

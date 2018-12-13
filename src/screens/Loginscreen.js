@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 
 import Styles from '../styles';
-import { RSA, RSAKeychain } from 'react-native-rsa-native';
 
 export default class Loginscreen extends Component{
     async loginserver() {
@@ -15,7 +14,7 @@ export default class Loginscreen extends Component{
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: 'LeeSeungjin'
+                username: 'ParkSejin'
             })
         })
         .then((response) => response.json())
