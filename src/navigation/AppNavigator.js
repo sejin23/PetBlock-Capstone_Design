@@ -1,22 +1,17 @@
 import React, {Component} from 'react';
-import { createDrawerNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import HomeScreen from '../screens/HomeScreen';
-import Profile from '../screens/Profile';
+import { createSwitchNavigator } from 'react-navigation';
+import Loginscreen from '../screens/Loginscreen';
+import Selectscreen from '../screens/Selectscreen';
+import Petinfoscreen from '../screens/Petinfoscreen';
+//import Weatherscreen from '../screens/Weatherscreen';
+import Diagscreen from '../screens/Diagscreen';
 
-export default createDrawerNavigator({
-  HomeScreen: {
-    screen: HomeScreen,
-    navigationOptions: {
-      drawerLabel: 'Home',
-      drawerIcon: ({tintColor}) => <Icon name="user-circle" size={17} />,
-    }
-  },
-  Profile: {
-    screen: Profile,
-    navigationOptions: {
-      drawerLabel: 'Profile',
-      drawerIcon: ({tintColor}) => <Icon name="user-circle" size={17} />,
-    }
-  }
+export default createSwitchNavigator({
+  Login: Loginscreen,
+  Select: Selectscreen,
+  Petinfo: Petinfoscreen,
+  //Weather: Weatherscreen,
+  Diagnosis: Diagscreen,
+},{
+  initialRouteName: 'Login'
 });

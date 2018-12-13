@@ -5,7 +5,7 @@ import CustomButton from '../../components/CustomButton';
 import {RSA, RSAKeychain} from 'react-native-rsa-native';
 import Styles from '../../styles';
 
-export default class Loginscreen extends Component {
+export default class Loginn extends Component {
     state = {
         isloggedin: "",
         usrname: "",

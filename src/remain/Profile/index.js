@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { createSwitchNavigator } from 'react-navigation';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Loginscreen from './Loginscreen';
+import Loginscreen from './Loginn';
 import Joinscreen from './Joinscreen';
 import Styles from '../../styles';
 

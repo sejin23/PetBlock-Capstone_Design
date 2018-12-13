@@ -25,12 +25,12 @@ export default class MemoryHome extends Component {
     });
     render() {
         const flist = this.state.filelist ? (
-            <ScrollView>
+            <View>
                 
-            </ScrollView>
+            </View>
         ): null;
         return (
-            <View>
+            <View style={{alignItems: "center", }}>
                 <Text>Hello</Text>
             </View>
         );
