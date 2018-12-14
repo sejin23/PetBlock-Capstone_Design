@@ -63,6 +63,7 @@ export default StyleSheet.create({
     },
     header: {
         height: 70,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },

@@ -9,13 +9,14 @@ export default class Diagscreen extends Component{
         this.state = {
             files: [],
             isopened: false,
+            count: 0,
         }
         this.downloadfile = this.downloadfile.bind(this);
     }
     downloadfile = () => {
         RNFS.downloadFile({
-            fromUrl: 'http://13.124.213.62:3001/api/fileRegister/filedownloads/ParkSejin/'+this.state.files[1],
-            toFile: `${RNFS.DocumentDirectoryPath}/diagnosis.jpg`
+            fromUrl: 'http://13.124.213.62:3001/api/fileRegister/filedownloads/ParkSejin/'+this.state.files[this.state.count],
+            toFile: `${RNFS.DocumentDirectoryPath}/diagnosis`+this.state.count.toString()+`.jpg`
         }).promise.then((r) => {
             this.setState({isopened: true});
         }).catch((err) => {
@@ -65,15 +66,16 @@ export default class Diagscreen extends Component{
         let filexist = this.state.isopened? (
             <View style={{
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                alignContent: 'center'
             }}>
                 <Image style={{
                     width: "100%",
-                    height: 500,
+                    height: 530,
                     backgroundColor: 'black',
                 }}
                 source={{
-                    uri: `file://${RNFS.DocumentDirectoryPath}/diagnosis.jpg`,
+                    uri: `file://${RNFS.DocumentDirectoryPath}/diagnosis`+this.state.count.toString()+`.jpg`,
                     scale: 1
                 }} />
             </View>
@@ -86,6 +88,9 @@ export default class Diagscreen extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={{flex: 1, backgroundColor: '#A0C4C5'}}>
+                    <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>{this.setState({count: this.state.count+1})}}>
+                        <Text style={{fontSize: 20}}>next file</Text>
+                    </TouchableOpacity>
                     <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
                         {filelist}
                     </View>

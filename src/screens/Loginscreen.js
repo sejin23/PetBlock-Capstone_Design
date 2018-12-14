@@ -51,7 +51,7 @@ export default class Loginscreen extends Component{
                     </View>
                     <View style={Styles.Sectionstyle}>
                         <Image source={require('../image/lock.png')} style={Styles.Imagestyle}/>
-                        <TextInput style={Styles.logintextinput} underlineColorAndroid='white' />
+                        <TextInput style={Styles.logintextinput} underlineColorAndroid='white' secureTextEntry={true} />
                     </View>
                     <View style={{alignItems: 'flex-end', width: 210}}>
                         <Text style={Styles.rightText}>forgot password?</Text>
@@ -65,19 +65,3 @@ export default class Loginscreen extends Component{
         );
     }
 }
-/*
-<View style={Styles.logininputext}>
-                        <Image style={} />
-                        <TextInput style={}/>
-                    </View>
-                    <View style={Styles.logininputext}>
-                        <Image style={} />
-                        <TextInput style={} />
-                    </View>
-                    <View style={Styles}>
-                        <Image style={} />
-                    </View>
-                    <Button style={} onPress={} />
-                    <View style={}>
-                        <Image style={} />
-                    </View>*/

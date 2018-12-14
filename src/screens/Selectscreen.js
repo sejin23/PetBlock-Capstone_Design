@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, Alert, TouchableOpacity } from 'react-native';
 import Styles from '../styles';
 
 export default class Selectscreen extends Component{
     state = {
-        privatekey: "",
-        publicaddress: ""
+        privatekey: "0x353543453D5523A66356960D",
+        publicaddress: "0x79c18Ae40BbE74F1Cf594614A077609a18A27372"
     }
     otprequest = () => {
         const url = 'http://13.124.213.62:3001/api/auth/OTPreq';
@@ -23,19 +23,11 @@ export default class Selectscreen extends Component{
             })
             .then((response) => response.json())
             .then((responseJson) => {
-                alert(
-                    responseJson.OTP
-                );
+                Alert.alert(responseJson.OTP, '수의사에게 보여주세요.');
             });
         }catch(err){
             console.log(err);
         }
-    }
-    showmykey = () => {
-        
-    }
-    weatherinfo = () => {
-        this.props.navigation.navigate('Petinfo');
     }
     nextactivity = () => {
         this.props.navigation.navigate('Petinfo');
@@ -61,12 +53,11 @@ export default class Selectscreen extends Component{
                 </View>
                 <View style={{
                     flex: 2,
-                    flexDirection: 'row',
-                    justifyContent: 'space-around'
+                    flexDirection: 'column',
+                    alignItems: 'center'
                     }}>
-                    <TouchableOpacity style={Styles.largeButton} onPress={this.weatherinfo} >
-                        <Text style={{color: '#CDDDF1'}}>Show keys</Text>
-                    </TouchableOpacity>
+                    <Text style={{textAlign: 'center'}}>내 공개키 : {this.state.privatekey}</Text>
+                    <Text style={{textAlign: 'center'}}>내 공개주소 : {this.state.publicaddress}</Text>
                     <TouchableOpacity style={Styles.largeButton} onPress={this.otprequest} >
                         <Text style={{color: '#CDDDF1'}}>OTP request</Text>
                     </TouchableOpacity>
